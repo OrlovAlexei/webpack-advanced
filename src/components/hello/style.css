@@ -1,0 +1,8 @@
+.hello {
+  --mainColor: white;
+  color: var(--mainColor);
+
+  @media (--phoneP) {
+    color: red;
+  }
+}
