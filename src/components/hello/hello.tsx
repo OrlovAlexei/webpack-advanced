@@ -1,5 +1,6 @@
 import React from "react";
 import cat from "../../assets/cat.jpg";
+import ReactLogo from "../../assets/logo.svg";
 import s from "./style.css";
 
 export interface HelloProps {
@@ -17,6 +18,7 @@ export function Hello(props: HelloProps) {
         Hello {name} from {compiler} and {framework} !
       </h1>
       <img src={cat} />
+      <ReactLogo />
     </>
   );
 }

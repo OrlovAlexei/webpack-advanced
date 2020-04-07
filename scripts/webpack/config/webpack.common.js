@@ -17,6 +17,7 @@ export const getCommonConfig = () => {
     modules.loadTypescript(),
     modules.setupHtml(),
     modules.loadCss(),
-    modules.loadImages()
+    modules.loadImages(),
+    modules.loadSvg()
   );
 };

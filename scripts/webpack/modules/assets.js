@@ -27,3 +27,35 @@ export const loadImages = () => ({
     ],
   },
 });
+
+export const loadSvg = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.svg$/i,
+        issuer: {
+          test: /\.tsx$/i,
+        },
+        use: [
+          {
+            loader: "@svgr/webpack",
+          },
+        ],
+      },
+      {
+        test: /\.svg$/i,
+        issuer: {
+          test: /\.css$/i,
+        },
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+            },
+          },
+        ],
+      },
+    ],
+  },
+});
