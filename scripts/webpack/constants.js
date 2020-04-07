@@ -1,8 +1,8 @@
-const { resolve } = require("path");
-const { path: PROJECT_ROOT } = require("app-root-path");
+import { path as rootPath } from "app-root-path";
+import { resolve } from "path";
 
-exports.PROJECT_ROOT = PROJECT_ROOT;
-exports.BUILD_DIR = resolve(PROJECT_ROOT, "./dist");
-exports.SOURCE_DIR = resolve(PROJECT_ROOT, "./src");
-exports.HOST = "localhost";
-exports.PORT = 3000;
+export const PROJECT_ROOT = rootPath;
+export const BUILD_DIR = resolve(PROJECT_ROOT, "./dist");
+export const SOURCE_DIR = resolve(PROJECT_ROOT, "./src");
+export const HOST = "localhost";
+export const PORT = 3000;

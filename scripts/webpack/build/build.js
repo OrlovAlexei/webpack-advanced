@@ -1,7 +1,6 @@
-const webpack = require("webpack");
-const chalk = require("chalk");
-
-const getProdConfig = require("./config/webpack.prod");
+import chalk from "chalk";
+import webpack from "webpack";
+import getProdConfig from "../config/webpack.prod";
 
 console.log(chalk.green("Start build!"));
 

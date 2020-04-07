@@ -1,13 +1,11 @@
-const webpack = require("webpack");
-const chalk = require("chalk");
-const hot = require("webpack-hot-middleware");
-const DevServer = require("webpack-dev-server");
-
-const { choosePort } = require("./port");
-
-const getDevConfig = require("./config/webpack.dev");
-
-const { HOST, PORT } = require("./constants");
+import chalk from "chalk";
+import openBrowser from "react-dev-utils/openBrowser";
+import webpack from "webpack";
+import DevServer from "webpack-dev-server";
+import hot from "webpack-hot-middleware";
+import getDevConfig from "../config/webpack.dev";
+import { HOST, PORT } from "../constants";
+import { choosePort } from "../port";
 
 const compiler = webpack(getDevConfig());
 
@@ -19,13 +17,14 @@ const compiler = webpack(getDevConfig());
       console.log(chalk.yellowBright("Its impossible to run the app. Maybe you said 'No' :("));
       return null;
     }
+
     const server = new DevServer(compiler, {
       host: HOST,
       port: selectedPort,
       historyApiFallback: true,
       // inline: true,
       overlay: true,
-      quiet: true, // я обновился
+      quiet: false, // я обновился
       clientLogLevel: "none",
       noInfo: true,
       after: (app) => {
@@ -34,8 +33,10 @@ const compiler = webpack(getDevConfig());
     });
 
     server.listen(selectedPort, HOST, () => {
-      console.log(`Server listening on  ${chalk.blueBright(`http://${HOST}:${selectedPort}`)}`);
+      const url = `http://${HOST}:${selectedPort}`;
       console.log(chalk.magenta("🐥️ Happy hacking! 🐥️"));
+      console.log(`Server listening on  ${chalk.blueBright(url)}`);
+      openBrowser(url);
     });
   } catch (err) {
     console.log(chalk.redBright("Error"));

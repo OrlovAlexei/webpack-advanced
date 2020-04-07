@@ -1,13 +1,17 @@
 {
   "scripts": {
-    "build": "node ./scripts/webpack/build.js",
-    "start": "node ./scripts/webpack/start.js",
+    "build": "node  ./scripts/webpack/build",
+    "start": "node ./scripts/webpack/start",
     "serve": "serve \"./dist\""
   },
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/register": "^7.9.0",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
     "app-root-path": "^3.0.0",
+    "babel-plugin-dynamic-import-node": "^2.3.0",
     "chalk": "^4.0.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.0",
@@ -17,6 +21,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
+    "react-dev-utils": "^10.2.1",
     "react-hot-loader": "^4.12.20",
     "serve": "^11.3.0",
     "source-map-loader": "^0.2.4",
