@@ -1,7 +1,6 @@
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const merge = require("webpack-merge");
-
-const getCommonConfig = require("./webpack.common");
+import { CleanWebpackPlugin } from "clean-webpack-plugin";
+import merge from "webpack-merge";
+import { getCommonConfig } from "./webpack.common";
 
 module.exports = () => {
   return merge(getCommonConfig(), {
