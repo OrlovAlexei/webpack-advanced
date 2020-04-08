@@ -9,6 +9,7 @@ export const getCommonConfig = () => {
       entry: SOURCE_DIR,
       output: {
         path: BUILD_DIR,
+        filename: "js/main.js",
       },
       resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -16,7 +17,7 @@ export const getCommonConfig = () => {
     },
     modules.loadTypescript(),
     modules.setupHtml(),
-    modules.loadCss(),
+    // modules.loadCss(),
     modules.loadImages(),
     modules.loadSvg(),
     modules.loadFonts()

@@ -1,53 +1,72 @@
-import postCssEnv from "postcss-preset-env";
+import cssnano from "cssnano";
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import postCssenv from "postcss-preset-env";
 
-export const loadCss = () => ({
+// Helpers
+export const loadCss = ({ sourceMap = false } = { sourceMap: false }) => ({
+  loader: "css-loader",
+  options: {
+    sourceMap,
+    modules: {
+      mode: "local",
+      localIdentName: "[path][name]--[hash:base64:5]__[local]",
+    },
+  },
+});
+
+export const loadPostcss = (
+  { sourceMap = false, minify = false } = { sourceMap: false, minify: false }
+) => {
+  const plugins = [
+    postCssenv({
+      stage: 0, // def 2
+    }),
+  ];
+
+  if (minify) plugins.push(cssnano);
+
+  return {
+    loader: "postcss-loader",
+    options: {
+      sourceMap,
+      plugins,
+    },
+  };
+};
+
+// Core
+export const loadDevCss = () => ({
   module: {
     rules: [
       {
         test: /\.css?$/,
         use: [
           "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: {
-                mode: "local",
-                localIdentName: "[path][name]--[hash:base64:5]__[local]",
-              },
-            },
-          },
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: () => [
-                postCssEnv({
-                  stage: 0, // def 2
-                  // postcssCustomMedia: postcssCustomMedia({
-                  //   importFrom: [
-                  //     {
-                  //       customMedia: {
-                  //         "--phoneP": "(width <= 414px)",
-                  //         "--phoneL": "(width >= 415px) and (width <= 667px)",
-                  //       },
-                  //     },
-                  //   ],
-                  // }),
-                  // features: {
-                  //   "custom-media-queries": {
-                  //     importFrom: [
-                  //       {
-                  //         "--phoneP": "(width <= 414px)",
-                  //         "--phoneL": "(width >= 415px) and (width <= 667px)",
-                  //       },
-                  //     ],
-                  //   },
-                  // },
-                }),
-              ],
-            },
-          },
+          loadCss({ sourceMap: true }),
+          loadPostcss({ sourceMap: true, minify: false }),
         ],
       },
     ],
   },
+});
+
+export const loadProdCss = () => ({
+  module: {
+    rules: [
+      {
+        test: /\.css?$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          loadCss({ sourceMap: false }),
+          loadPostcss({ sourceMap: false, minify: true }),
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "css/[name].[id].css",
+      chunkFilename: "css/[name].[id].css",
+    }),
+  ],
 });
