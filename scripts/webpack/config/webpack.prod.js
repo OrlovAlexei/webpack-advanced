@@ -11,6 +11,8 @@ module.exports = () => {
     modules.loadProdCss(),
     modules.optimizeImages(),
     modules.cleanDirectory(),
-    modules.connectBuildProgressIndicator()
+    modules.connectBuildProgressIndicator(),
+    modules.optimizeBuild(),
+    modules.connectBundleAnalyzer()
   );
 };
