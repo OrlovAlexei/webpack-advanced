@@ -10,6 +10,7 @@ export const getCommonConfig = () => {
       output: {
         path: BUILD_DIR,
         filename: "js/main.js",
+        publicPath: "/",
       },
       resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"],
@@ -17,7 +18,6 @@ export const getCommonConfig = () => {
     },
     modules.loadTypescript(),
     modules.setupHtml(),
-    // modules.loadCss(),
     modules.loadImages(),
     modules.loadSvg(),
     modules.loadFonts()

@@ -10,6 +10,7 @@ module.exports = () => {
       mode: "production",
       plugins: [new CleanWebpackPlugin({ dry: true })],
     },
-    modules.loadProdCss()
+    modules.loadProdCss(),
+    modules.optimizeImages()
   );
 };
