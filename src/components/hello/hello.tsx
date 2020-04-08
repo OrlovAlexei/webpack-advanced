@@ -12,6 +12,8 @@ export interface HelloProps {
 export function Hello(props: HelloProps) {
   const { compiler, framework, name } = props;
 
+  console.log("API_URI", API_URI);
+
   return (
     <>
       <h1 className={s.hello}>
