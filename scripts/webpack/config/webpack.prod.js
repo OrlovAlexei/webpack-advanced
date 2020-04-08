@@ -13,6 +13,7 @@ module.exports = () => {
     modules.cleanDirectory(),
     modules.connectBuildProgressIndicator(),
     modules.optimizeBuild(),
-    modules.connectBundleAnalyzer()
+    modules.connectBundleAnalyzer(),
+    modules.optimizeMoment()
   );
 };

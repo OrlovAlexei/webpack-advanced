@@ -2,6 +2,7 @@ import imageminMozjpeg from "imagemin-mozjpeg";
 import imageminSvgo from "imagemin-svgo";
 import ImageminWebpackPlugin from "imagemin-webpack";
 import TerserPlugin from "terser-webpack-plugin";
+import { ContextReplacementPlugin } from "webpack";
 
 export const optimizeImages = () => ({
   plugins: [
@@ -37,4 +38,8 @@ export const optimizeBuild = () => ({
     sideEffects: true,
     moduleIds: "natural",
   },
+});
+
+export const optimizeMoment = () => ({
+  plugins: [new ContextReplacementPlugin(/moment[/\\]locale$/, /ru/)],
 });
