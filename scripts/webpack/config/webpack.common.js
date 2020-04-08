@@ -18,6 +18,7 @@ export const getCommonConfig = () => {
     modules.setupHtml(),
     modules.loadCss(),
     modules.loadImages(),
-    modules.loadSvg()
+    modules.loadSvg(),
+    modules.loadFonts()
   );
 };

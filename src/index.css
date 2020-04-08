@@ -4,4 +4,13 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #161619;
+  font-family: system-ui, "Lobster";
+}
+
+@font-face {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Lobster-Regular"), local("Lobster Regular"),
+    url("../static/fonts/Lobster-Regular.ttf") format("ttf");
 }
