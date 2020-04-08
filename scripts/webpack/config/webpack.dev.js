@@ -9,6 +9,7 @@ module.exports = () => {
       mode: "development",
       devtool: "source-map",
     },
-    modules.loadDevCss()
+    modules.loadDevCss(),
+    modules.connectFriendlyErrors()
   );
 };
