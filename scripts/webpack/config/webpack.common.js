@@ -11,7 +11,8 @@ export const getCommonConfig = () => {
       entry: SOURCE_DIR,
       output: {
         path: BUILD_DIR,
-        filename: "js/main.js",
+        filename: "js/[contenthash:5].[id].main.js",
+        chunkFilename: "js/[chunkhash:5].[id].main.js",
         publicPath: "/",
       },
       resolve: {

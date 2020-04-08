@@ -10,6 +10,7 @@
     "@babel/preset-env": "^7.9.0",
     "@babel/register": "^7.9.0",
     "@svgr/webpack": "^5.3.1",
+    "@types/lodash-es": "^4.17.3",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
     "app-root-path": "^3.0.0",
@@ -44,6 +45,7 @@
     "webpackbar": "^4.0.0"
   },
   "dependencies": {
+    "lodash-es": "^4.17.15",
     "moment": "^2.24.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

@@ -19,7 +19,7 @@ export const loadImages = () => ({
           {
             loader: "file-loader",
             options: {
-              name: "images/[name].[ext]",
+              name: "images/[name].[hash:7].[ext]",
             },
           },
         ],
@@ -51,7 +51,7 @@ export const loadSvg = () => ({
           {
             loader: "file-loader",
             options: {
-              name: "[name].[ext]",
+              name: "[name].[hash:7].[ext]",
             },
           },
         ],
@@ -69,7 +69,7 @@ export const loadFonts = () => ({
           {
             loader: "file-loader",
             options: {
-              name: "fonts/[name].[ext]",
+              name: "fonts/[name].[hash:7].[ext]",
             },
           },
         ],

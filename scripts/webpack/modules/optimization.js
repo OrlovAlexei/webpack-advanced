@@ -1,5 +1,3 @@
-import imageminMozjpeg from "imagemin-mozjpeg";
-import imageminSvgo from "imagemin-svgo";
 import ImageminWebpackPlugin from "imagemin-webpack";
 import TerserPlugin from "terser-webpack-plugin";
 import { ContextReplacementPlugin } from "webpack";
@@ -9,7 +7,19 @@ export const optimizeImages = () => ({
     new ImageminWebpackPlugin({
       pngquant: { quality: [0.5, 0.5] },
       imageminOptions: {
-        plugins: [imageminSvgo(), imageminMozjpeg({ quality: 50 })],
+        plugins: [
+          [
+            "svgo",
+            {
+              plugins: [
+                {
+                  removeViewBox: false,
+                },
+              ],
+            },
+          ],
+          ["mozjpeg", { quality: 50 }],
+        ],
       },
     }),
   ],

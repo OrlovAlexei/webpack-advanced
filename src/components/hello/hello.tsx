@@ -1,3 +1,4 @@
+import { update } from "lodash-es";
 import React from "react";
 import cat from "../../assets/cat.jpg";
 import ReactLogo from "../../assets/logo.svg";
@@ -11,6 +12,8 @@ export interface HelloProps {
 
 export function Hello(props: HelloProps) {
   const { compiler, framework, name } = props;
+
+  console.log("update", update);
 
   console.log("API_URI", API_URI);
 

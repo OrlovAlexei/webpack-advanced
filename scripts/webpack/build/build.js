@@ -2,7 +2,7 @@ import chalk from "chalk";
 import webpack from "webpack";
 import getProdConfig from "../config/webpack.prod";
 
-console.log(chalk.green("Start build!"));
+// console.log(chalk.green("Start build!"));
 
 const compiler = webpack(getProdConfig());
 
@@ -19,25 +19,25 @@ compiler.run((error, stats) => {
   }
 
   const info = stats.toString({
-    hash: true,
+    hash: false,
     colors: true,
-    version: true,
-    env: true,
+    version: false,
+    env: false,
     modules: false,
     entrypoints: false,
+    chunks: false,
+    moduleAssets: false,
+    warnings: false,
   });
 
   if (stats.hasErrors()) {
     console.log(chalk.redBright("💩️ COMPILE ERROR! 💩️"));
-    console.error(info);
-    return;
   }
 
   if (stats.hasWarnings()) {
     console.log(chalk.yellowBright("💩️ COMPILE WARNING! 💩️"));
-    return;
   }
-
+  console.log("");
   console.log(info);
-  console.log(chalk.greenBright("Build Completed!"));
+  // console.log(chalk.greenBright("Build Completed!"));
 });
