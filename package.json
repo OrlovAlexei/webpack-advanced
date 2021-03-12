@@ -30,7 +30,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.7.0",
-    "react-dev-utils": "^10.2.1",
+    "react-dev-utils": "^11.0.4",
     "react-hot-loader": "^4.12.20",
     "serve": "^11.3.0",
     "source-map-loader": "^0.2.4",
